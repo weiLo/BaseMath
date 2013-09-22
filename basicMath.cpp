@@ -14,8 +14,11 @@ int chkValidNumber(char* chk_valid)
     {
         if ( chk_valid[0] < 48 || 57 < chk_valid[0] )
         {
-            valid = 1;
-            break;
+            if ( chk_valid[0] != 45 ) // check '-' of starting of interger
+            {
+                valid = 1;
+                break;
+            }
         }
         else
         {
