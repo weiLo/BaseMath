@@ -10,15 +10,14 @@ int chkValidNumber(char* chk_valid)
     int valid = 0; //return value; return 1 if not valid;
     
     int i;
+    int neg_counter = 0;
     for (i = 0; chk_valid[i] != '\0'; i++)
     {
-        if ( chk_valid[0] < 48 || 57 < chk_valid[0] )
+        
+        if ( chk_valid[i] == 45 && neg_counter == 0)
         {
-            if ( chk_valid[0] != 45 ) // check '-' of starting of interger
-            {
-                valid = 1;
-                break;
-            }
+            neg_counter += 1;
+            //increase counter, go to next position.
         }
         else
         {
@@ -31,7 +30,7 @@ int chkValidNumber(char* chk_valid)
                 valid = 1;
                 break;
             }
-            else if( chk_valid[i] < 48 || 57 < chk_valid[i] ) // not integer
+            else if ( chk_valid[i] < 48 || 57 < chk_valid[i] )
             {
                 valid = 1;
                 break;
